@@ -1,5 +1,5 @@
 public class Mojarrita extends Animal{
-    public Mojarrita(String nombre, int edad, Dueño dueño, Sexo sexo, int peso) {
+    public Mojarrita(String nombre, int edad, Dueño dueño, Sexo sexo, int peso, String tipoAgua) {
         super(nombre, edad, dueño, sexo, peso);
     }
 

@@ -56,6 +56,17 @@ public abstract class Animal {
         this.peso = peso;
     }
 
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                ", dueño=" + dueño +
+                ", sexo=" + sexo +
+                ", peso=" + peso +
+                '}';
+    }
+
     // Metodos
     public void saludar() {
         System.out.println("Hola me llamo " + nombre + " y soy un " + getClass().getSimpleName());
