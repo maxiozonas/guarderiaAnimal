@@ -2,6 +2,9 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// Cosas para hacer: condicional en ingresarAnimal para verificar que el tipo de animal ingresado sea correcto desde un principio
+// Corregir mojarritas en el momento de ingresar animal, para dar solo dos opciones (agua fria o agua caliente),
+//
 public class GuarderiaAnimal {
     public static void main(String[] args) {
 
@@ -24,19 +27,19 @@ public class GuarderiaAnimal {
 
             switch (opcion) {
                 case 1:
-                    ingresarAnimal(listaAnimales);
+                    Animal.ingresarAnimal(listaAnimales);
                     break;
                 case 2:
-                    // código para retirar animal
+                    Animal.removerAnimal(listaAnimales);
                     break;
                 case 3:
-                    // código para calcular cantidad de animales
+                    Animal.contarAnimales(listaAnimales);
                     break;
                 case 4:
-                    // código para listar animales
+                    Animal.listarAnimales(listaAnimales);
                     break;
                 case 5:
-                    // código para hacer saludar a los animales
+                    Animal.saludar(listaAnimales);
                     break;
                 case 0:
                     System.out.println("Saliendo del programa...");
@@ -46,60 +49,5 @@ public class GuarderiaAnimal {
                     break;
             }
         }
-    }
-
-    public static void ingresarAnimal(ArrayList<Animal> listaAnimales) {
-        Scanner scanner = new Scanner(System.in);
-        Animal animal = null;
-        // Datos del perro
-        System.out.println("Ingrese el tipo de animal: ");
-        String tipo = scanner.nextLine();
-
-        System.out.println("Ingrese el nombre del animal: ");
-        String nombre = scanner.nextLine();
-
-        System.out.println("Ingrese la edad del animal: ");
-        int edad = scanner.nextInt();
-        scanner.nextLine();
-
-        System.out.println("Ingrese el sexo (macho o hembra): ");
-        Sexo sexo = Sexo.valueOf(scanner.nextLine().toUpperCase());
-
-        System.out.println("Ingrese el peso del animal (Gramos): ");
-        int peso = scanner.nextInt();
-        scanner.nextLine();
-
-        // Ahora los datos del Dueno
-        System.out.println("Ingrese los DNI del dueño: ");
-        String dni = scanner.nextLine();
-
-        System.out.println("Ingrese el nombre del dueño: ");
-        String nombreDueño = scanner.nextLine();
-
-        System.out.println("Ingrese la direccino del dueño: ");
-        String direccion = scanner.nextLine();
-
-
-        switch (tipo.toLowerCase()) {
-            case "perro":
-                System.out.println("Ingrese la raza del perro: ");
-                String raza = scanner.nextLine();
-                animal = new Perro(nombre, edad, new Dueño(dni, nombreDueño, direccion), sexo, peso, raza);
-                break;
-            case "gato":
-                animal = new Gato(nombre, edad, new Dueño(dni, nombreDueño, direccion), sexo, peso);
-                break;
-            case "hamster":
-                animal = new Hamster(nombre, edad, new Dueño(dni, nombreDueño, direccion), sexo, peso);
-                break;
-            case "mojarrita":
-                System.out.println("Ingrese el tipo de agua de la mojarrita: ");
-                String tipoAgua = scanner.nextLine();
-                animal = new Mojarrita(nombre, edad, new Dueño(dni, nombreDueño, direccion), sexo, peso, tipoAgua);
-                break;
-            default:
-                System.out.println("Tipo de animal inválido.");
-        }
-        listaAnimales.add(animal);
     }
 }

@@ -1,4 +1,4 @@
 public enum TipoDeAgua {
-    fria,
-    tropical
+    FRIA,
+    TROPICAL
 }
